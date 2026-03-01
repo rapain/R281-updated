@@ -240,7 +240,7 @@ jobs:
 
       - name: Upload Toolchain Image To Artifact
         if: ${{ env.TOOLCHAIN_RELEASE != 'true' && (env.REBUILD_CHECK == 'true' || env.TOOLCHAIN_REBUILD == 'true') }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ env.TOOLCHAIN_IMAGE }}
           path: output
@@ -379,7 +379,7 @@ jobs:
           make defconfig
 
       - name: Upload Config To Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Config
           path: ${{ env.OPENWRT_ROOT_PATH }}/.config
@@ -422,7 +422,7 @@ jobs:
           make checksum
 
       - name: Upload Bin To Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ env.SOURCE_REPO }}-${{ env.DEVICE_NAME }}-${{ env.BUILD_DATE }}
           path: ${{ env.OPENWRT_ROOT_PATH }}/bin
